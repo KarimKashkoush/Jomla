@@ -376,11 +376,22 @@ img {
       }
 }
 
+@media screen and (max-width: 515px) {
+      .tektek {
+            .container {
+                  .boxs {
+                        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                  }
+            }
+      }
+      
+}
 /* End tektek */
 
 
 /* Start Products */
 .products {
+      padding-top: 70px;
       .container {
             .boxs {
                   display: grid;
