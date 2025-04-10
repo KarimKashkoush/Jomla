@@ -194,13 +194,13 @@ img {
             justify-content: space-between;
             gap: 10px;
             align-items: center;
-            padding: 20px 15px;
+            padding: 20px;
 
             .logo {
                   margin-block: auto;
-
                   svg {
                         display: block;
+                        width: 120px;
                   }
             }
 
@@ -660,6 +660,7 @@ img {
 
 /* Satrt CopyRight */
 .copyRight {
+      border-top: 1px solid #ccc;
       .container {
             padding-block: 25px;
             font-size: 16px;
@@ -771,8 +772,6 @@ img {
 /* ============ Start Product Details ============== */
 /* ============ End Product Details ============== */
 
-
-
 /* ============== Start Cart ============== */
 .cart-page {
       .container {
@@ -790,7 +789,6 @@ img {
                   padding: 0;
 
                   .product {
-                        border: 1px solid #ccc;
                         border-radius: 10px;
                         background-color: #fff;
                         display: flex;
@@ -960,5 +958,4 @@ img {
             border-radius: 0 4px 4px 0;
       }
 }
-
 /* ============== End Cart ============== */
