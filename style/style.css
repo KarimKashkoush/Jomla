@@ -8,9 +8,13 @@ body {
       box-sizing: border-box;
       font-family: "Noto Sans Arabic", sans-serif;
       direction: rtl;
+      background-color: #f4f4f4;
+      padding-bottom: 76px;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
       outline: none;
       font-size: 14px;
       font-family: "Noto Sans Arabic", sans-serif;
@@ -43,13 +47,20 @@ img {
       display: block;
 }
 
+.section-header h2 {
+      font-size: 21px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 25px;
+}
+
 .top-nav {
       border-bottom: 1px solid #ccc;
 
       .container {
+            padding-block: 5px;
             display: flex;
             align-items: center;
-            padding: 10px 0;
             gap: 15px;
             align-items: center;
             color: #000;
@@ -60,6 +71,15 @@ img {
                   display: flex;
                   gap: 5px;
                   align-items: center;
+
+                  form select {
+                        width: 100px;
+
+                        option {
+                              border-radius: 0;
+                              padding-inline: 5px;
+                        }
+                  }
 
                   span {
                         font-weight: 600;
@@ -76,16 +96,354 @@ img {
                         color: #707070;
                         font-weight: 700;
                         transition: var(--transition-3);
+                        border-right: 1px solid #ccc;
 
 
                         &:hover {
                               color: #b31217;
                         }
                   }
+            }
+      }
+}
 
-                  a:not(:last-child) {
-                        border-left: 1px solid #ccc;
+@media (max-width: 1060px) {
+      .top-nav {
+            display: none;
+      }
+}
+
+/* Start Header */
+.header {
+      background: rgb(179, 18, 23);
+      background: linear-gradient(90deg, rgba(179, 18, 23, 1) 0%, rgba(134, 39, 42, 1) 71%);
+
+      .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            padding: 20px 15px;
+
+            .logo {
+                  margin-block: auto;
+
+                  svg {
+                        display: block;
+                  }
+            }
+
+            .links {
+                  section {
+                        position: relative;
+                  }
+
+                  display: flex;
+                  gap: 15px;
+
+                  svg {
+                        font-size: 25px;
+                        color: #fff;
+                  }
+
+                  span {
+                        position: absolute;
+                        top: -10px;
+                        left: -10px;
+                        background-color: #fff;
+                        min-width: 10px;
+                        height: 10px;
+                        padding: 5px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                  }
+            }
+
+            .search {
+                  flex: 1;
+                  max-width: 500px;
+
+                  form {
+                        width: 100%;
+                        position: relative;
+
+
+                        input {
+                              width: 100%;
+                              padding: 10px 15px;
+                              border-radius: 15px;
+                              border: none;
+                        }
+
+                        button {
+                              position: absolute;
+                              top: 50%;
+                              transform: translateY(-50%);
+                              left: -25px;
+                              background-color: transparent;
+                              border: none;
+                              font-size: 22px;
+                              color: #b31217;
+                              cursor: pointer;
+                        }
                   }
             }
       }
 }
+
+
+@media (max-width: 991px) {
+      .header {
+            .container {
+                  justify-content: flex-start;
+
+                  .logo {
+                        svg {
+                              width: 80px;
+                        }
+                  }
+
+                  .links {
+                        display: none;
+                  }
+
+                  .search {
+                        max-width: 100%;
+
+                        form {
+                              width: calc(100% - 25px);
+                        }
+                  }
+            }
+      }
+}
+
+/* End Header */
+
+/* Start bottom-nav */
+.bottom-nav {
+      display: none;
+      background-color: #fff;
+      position: fixed;
+      z-index: 100;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      padding: 15px;
+
+      .container {
+            display: flex;
+            justify-content: space-between;
+
+            section {
+                  position: relative;
+
+                  a {
+                        font-size: 22px;
+                        color: #ccc;
+                        transition: var(--transition-3);
+
+                        &:hover {
+                              color: #b31217;
+                        }
+                  }
+
+                  span {
+                        position: absolute;
+                        top: -5px;
+                        left: -10px;
+                        background-color: #fff;
+                        min-width: 10px;
+                        height: 10px;
+                        padding: 5px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #b31217;
+                        color: #fff;
+                        font-size: 12px;
+                  }
+            }
+      }
+}
+
+@media (max-width: 991px) {
+      .bottom-nav {
+            display: block;
+      }
+}
+
+/* End bottom-nav */
+
+/* Start Slider */
+.slider {
+      .container {
+            .mySwiper {
+                  border-bottom-left-radius: 20px;
+                  border-bottom-right-radius: 20px;
+                  overflow: hidden;
+
+                  .swiper-slide {
+                        max-height: 250px;
+
+                        img {
+                              width: 100%;
+                        }
+                  }
+            }
+      }
+}
+
+/* End Slider */
+
+/* Start Banner */
+.banner {
+      margin-top: 15px;
+
+      .container {
+            img {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 15px;
+            }
+      }
+}
+
+/* End Banner */
+
+/* Start Discount */
+.discount {
+      margin-top: 25px;
+
+      .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 5px;
+
+            img {
+                  width: 100%;
+            }
+      }
+}
+
+/* End Discount */
+
+
+/* Start prdocuts section */
+.prdocuts-section {
+      padding-top: 70px;
+
+      .container {
+            margin: auto;
+
+            .mySwiper {
+                  background-color: transparent;
+
+                  img {
+                        width: 200px;
+                  }
+
+                  .swiper-pagination {
+                        position: relative;
+
+                        bottom: 0px !important;
+
+                  }
+            }
+      }
+}
+
+/* End prdocuts section */
+
+/* Start tektek */
+.tektek {
+      padding-top: 70px;
+
+      .container {
+            .boxs {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                  gap: 10px;
+
+                  img {
+                        width: 100%;
+                  }
+            }
+      }
+}
+
+/* End tektek */
+
+
+/* Start Products */
+.products {
+      .container {
+            .boxs {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+                  gap: 10px;
+
+
+                  .box {
+                        background-color: #fff;
+                        border-radius: 10px;
+
+                        img {
+                              width: 100%;
+                        }
+
+                        .content {
+                              padding: 10px;
+
+                              >p {
+                                    font-size: 14px;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    /* عدد الأسطر */
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    line-height: 1.2;
+                                    margin-bottom: 0;
+                              }
+
+                              >span {
+                                    color: gold;
+                              }
+
+                              .dis {
+                                    background-color: #b31217;
+                                    width: fit-content;
+                                    padding: 2px 5px;
+                                    border-radius: 5px;
+                                    color: #fff;
+                                    font-size: 12px;
+                                    margin-bottom: 0;
+                              }
+
+                              .price {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    font-size: 14px;
+                                    p {
+                                          font-weight: 800;
+                                    }
+
+                                    span {
+                                          color: #707070;
+                                          text-decoration: line-through;
+                                    }
+                              }
+                        }
+
+                  }
+            }
+      }
+}
+
+/* End Products */
