@@ -9,7 +9,7 @@ body {
       font-family: "Noto Sans Arabic", sans-serif;
       direction: rtl;
       background-color: #f4f4f4;
-      padding-bottom: 76px;
+      padding-bottom: 85px;
 }
 
 input,
@@ -391,6 +391,12 @@ img {
                   .box {
                         background-color: #fff;
                         border-radius: 10px;
+                        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                        overflow: hidden;
+                        color: #000;
+                        .image {
+                              padding: 10px;
+                        }
 
                         img {
                               width: 100%;
@@ -446,4 +452,14 @@ img {
       }
 }
 
+@media (max-width: 515px) {
+      .products {
+            .container {
+                  .boxs {
+                        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                  }
+            }
+      }
+      
+}
 /* End Products */
