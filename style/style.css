@@ -616,7 +616,7 @@ img {
 }
 
 @media (max-width: 515px) {
-      .products {
+      .main-products {
             .container {
                   .boxs {
                         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
