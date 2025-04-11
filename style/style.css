@@ -18,6 +18,8 @@ ul {
       list-style: none;
 }
 
+
+
 .category-title {
       p {
             background-color: #fff;
@@ -42,7 +44,8 @@ ul {
 
 input,
 select,
-textarea {
+textarea,
+button {
       outline: none;
       font-size: 14px;
       font-family: "Noto Sans Arabic", sans-serif;
@@ -93,7 +96,6 @@ img {
       justify-content: center;
       align-items: center;
       z-index: 999999;
-      /* عالي جدا عشان يغطي أي عنصر */
       transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -180,7 +182,10 @@ img {
 
 @media (max-width: 1060px) {
       .top-nav .container {
-            .links, .technical-support {
+            justify-content: center;
+
+            .links,
+            .technical-support {
                   display: none;
             }
       }
@@ -290,6 +295,7 @@ img {
             }
       }
 }
+
 /* End Header */
 
 /* Start bottom-nav */
@@ -339,6 +345,7 @@ img {
             }
       }
 }
+
 @media (max-width: 991px) {
       .bottom-nav {
             display: block;
@@ -361,28 +368,34 @@ img {
                         width: 300px;
                         background-color: #fff;
                         border-radius: 15px;
+
                         li {
                               position: relative;
                               width: 100%;
                               padding: 6px 15px;
+
                               &:not(:last-child) {
                                     border-bottom: 1px solid #f4f4f4;
                               }
+
                               &:hover .second-list {
                                     display: block;
 
                               }
+
                               a {
                                     display: flex;
                                     justify-content: space-between;
                                     align-items: center;
                                     color: #000;
-                                    font-size: 14px; 
+                                    font-size: 14px;
                                     transition: var(--transition-3);
+
                                     &:hover {
                                           color: #b31217;
                                     }
                               }
+
                               .second-list {
                                     background-color: #fff;
                                     position: absolute;
@@ -397,7 +410,7 @@ img {
                         }
                   }
             }
-            
+
             .banners {
                   width: calc(100% - 315px);
             }
@@ -485,12 +498,14 @@ img {
             .mySwiper {
                   background-color: transparent;
                   display: flex;
+
                   img {
                         width: 200px;
                   }
             }
       }
 }
+
 /* End prdocuts section */
 
 /* Start tektek */
@@ -1025,3 +1040,180 @@ img {
 }
 
 /* ============== End Cart ============== */
+
+/* ============== Start Check Out ============== */
+.checkout-page {
+      .container {
+            padding-block: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+
+            .section-header h2 {
+                  margin-bottom: 5px;
+            }
+
+            form {
+                  flex: 2;
+
+                  button {
+                        width: 100%;
+                        border: none;
+                        outline: none;
+                        background-color: #b31217;
+                        color: #fff;
+                        padding: 15px;
+                        border-radius: 5px;
+                        font-weight: 700;
+                        font-size: 14px;
+                        margin-top: 30px;
+                        cursor: pointer;
+                  }
+
+                  .input-control {
+                        position: relative;
+                        margin-bottom: 15px;
+                  }
+
+                  input {
+                        width: 100%;
+                        padding: 20px 15px 5px 15px;
+                        border: none;
+                        transition: var(--transition-3);
+                        border-radius: 5px;
+                        background-color: #fff;
+                        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                        border: 1px solid transparent;
+
+                        &:focus {
+                              border-color: #0000003c;
+                        }
+                  }
+
+                  input.error {
+                        background-color: #b312172c;
+                  }
+                  
+                  input.success {
+                        background-color: #61c56e2c;
+                  }
+
+                  label {
+                        position: absolute;
+                        top: 0px;
+                        right: 15px;
+                        color: #999999;
+                        font-size: 12px;
+                        transition: var(--transition-3);
+                  }
+
+                  .error-massege {
+                        color: #b31217;
+                        font-size: 12px;
+                        font-weight: 700;
+                        line-height: 1;
+                  }
+
+                  .payment-method {
+                        background-color: #fff;
+                        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                        border-radius: 5px;
+
+                        >.input-control {
+                              margin: 0;
+                              overflow: hidden;
+                              padding: 0px 15px;
+
+                              &:not(:last-child) {
+                                    border-bottom: 1px solid #ccc;
+                              }
+                        }
+
+                        .method {
+                              max-height: 0;
+                              overflow: hidden;
+                              transition: max-height 0.5s ease, padding 0.3s ease, opacity 0.3s ease;
+                              opacity: 0;
+                        }
+
+                        .method.open {
+                              max-height: 500px;
+                              opacity: 1;
+                        }
+
+                        input {
+                              padding: 15px;
+                              border-radius: 0px;
+                              box-shadow: none;
+                              border-bottom: 1px solid #ccc;
+                              padding: 5px;
+                              text-align: center;
+
+                              &:focus {
+                                    border-top: none;
+                                    border-right: none;
+                                    border-left: none;
+                              }
+                        }
+
+                        input[type="radio"] {
+                              width: fit-content;
+                              height: 15px;
+                              width: 15px;
+                              cursor: pointer;
+                        }
+
+                        label {
+                              position: static;
+                              cursor: pointer;
+                              font-weight: 700;
+                              font-size: 12px;
+                        }
+
+                        .radio-input {
+                              display: flex;
+                              align-items: center;
+                              gap: 4px;
+                              margin-top: 15px;
+                              margin-bottom: 15px;
+                        }
+                  }
+            }
+
+            .checkout-det {
+                  flex: 1;
+
+                  .box {
+                        section {
+                              display: flex;
+                              justify-content: space-between;
+                              padding: 15px;
+
+                              p {
+                                    font-weight: 700;
+                                    font-size: 14px;
+                              }
+
+                              span {
+                                    font-size: 14px;
+                                    color: #999999;
+                              }
+                        }
+
+                        .total {
+                              border-top: 1px solid #ccc;
+                        }
+
+
+                  }
+            }
+      }
+
+      @media (max-width: 786px) {
+            .container {
+                  flex-direction: column-reverse;
+            }
+      }
+}
+
+/* ============== End Check Out ============== */

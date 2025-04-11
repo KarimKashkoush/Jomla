@@ -134,6 +134,136 @@
       </section>
       <!-- End Bottom-Nav -->
 
+
+      <!-- Start CheckOut Page -->
+      <section class="checkout-page">
+            <section class="container">
+                  <form class="wow fadeInDown" id="paymentForm" data-wow-duration="1s" data-wow-delay="0.3s">
+                        <section class="section-header">
+                              <h2>تفاصيل الشحن</h2>
+                        </section>
+                        <section class="shipping">
+                              <!-- Name -->
+                              <section class="input-control">
+                                    <label for="name">الاسم</label>
+                                    <input type="text" id="name" name="name">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                              <!-- Email -->
+                              <section class="input-control">
+                                    <label for="email">البريد الإلكتروني</label>
+                                    <input type="email" id="email" name="email">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                              <!-- Phone Number -->
+                              <section class="input-control">
+                                    <label for="phone">رقم الهاتف</label>
+                                    <input type="tel" id="phone" name="phone">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                              <!-- City -->
+                              <section class="input-control">
+                                    <label for="city">المدينة</label>
+                                    <input type="text" id="city" name="city">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                              <!-- Area -->
+                              <section class="input-control">
+                                    <label for="area">اسم المنطقة</label>
+                                    <input type="text" id="area" name="area">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                              <!-- Street -->
+                              <section class="input-control">
+                                    <label for="street">اسم الشارع</label>
+                                    <input type="text" id="street" name="street">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                        </section>
+
+                        <section class="section-header">
+                              <h2>تفاصيل الدفع</h2>
+                        </section>
+                        <section class="payment-method">
+
+
+                              <section class="input-control">
+                                    <section class="radio-input">
+                                          <input type="radio" name="payment-method" id="paymentMethodVisa"
+                                                value="visa">
+                                          <label for="payment-method-visa">الدفع بالباطاقة</label>
+                                    </section>
+                                    <section class="method">
+                                          <!-- Card Number -->
+                                          <section class="input-control">
+                                                <input type="text" id="cardNumber" name="card-number"
+                                                      placeholder="رقم البطاقة">
+                                                <span class="error-massege" id="errorMassege"></span>
+                                          </section>
+                                          <!-- Card Date -->
+                                          <section class="input-control">
+                                                <input type="text" id="cardDate" name="card-date" placeholder="MM/YY">
+                                                <span class="error-massege" id="errorMassege"></span>
+                                          </section>
+                                          <!-- Card CVV -->
+                                          <section class="input-control">
+                                                <input type="text" id="cardCvv" name="card-cvv" placeholder="CVV">
+                                                <span class="error-massege" id="errorMassege"></span>
+                                          </section>
+                                          <!-- Card Name -->
+                                          <section class="input-control">
+                                                <input type="text" id="cardName" name="card-name"
+                                                      placeholder="اسم صاحب البطاقة">
+                                                <span class="error-massege" id="errorMassege"></span>
+                                          </section>
+                                    </section>
+                              </section>
+
+
+                              <section class="input-control">
+                                    <section class="radio-input">
+                                          <input type="radio" name="payment-method" id="cash"
+                                                value="cash">
+                                          <label for="paymentMethodCash">الدفع كاش</label>
+                                    </section>
+                                    <section class="method">
+                                          <p>الدفع عند الاستلام</p>
+                                          <p>سيتم الدفع نقدًا عند استلام الطلب.</p>
+                                    </section>
+                              </section>
+
+                              
+                        </section>
+                        <span class="error-massege" id="paymentError"></span>
+
+
+                        <button>إرسال</button>
+                  </form>
+
+
+                  <section class="checkout-det wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
+                        <section class="section-header">
+                              <h2>تفاصيل الطلب</h2>
+                        </section>
+                        <section class="box">
+                              <section>
+                                    <span>المجموع</span>
+                                    <p>516 د.إ</p>
+                              </section>
+                              <section>
+                                    <span>الشحن</span>
+                                    <p>20 د.إ</p>
+                              </section>
+                              <section class="total">
+                                    <span>الإجمالي</span>
+                                    <p>516 د.إ</p>
+                              </section>
+                        </section>
+                  </section>
+            </section>
+      </section>
+      <!-- End CheckOut Page -->
+
       <!-- Start CopyRight -->
       <div class="copyRight">
             <section class="container">
@@ -146,6 +276,7 @@
       <script src="js/all.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
       <script src="js/wow.min.js"></script>
+      <script src="js/validation.js"></script>
       <script>
             function adjustPadding() {
                   let body = document.querySelector('body');
@@ -164,7 +295,30 @@
                   const loader = document.querySelector('.loader');
                   loader.classList.add('hidden');
             });
+
+            const radios = document.querySelectorAll('input[name="payment-method"]');
+
+            radios.forEach(radio => {
+                  radio.addEventListener('change', () => {
+                        // اقفل كل الـ method
+                        document.querySelectorAll('.method').forEach(method => {
+                              method.classList.remove('open');
+                        });
+
+                        // افتح الخاصة بالراديو اللي اختاره
+                        const selectedMethod = radio.closest('.input-control').querySelector('.method');
+                        if (selectedMethod) {
+                              selectedMethod.classList.add('open');
+                        }
+                  });
+            });
+
+            // أول ما الصفحة تفتح، نقفل الكل
+            document.querySelectorAll('.method').forEach(method => {
+                  method.classList.remove('open');
+            });
       </script>
+      <!-- Validation -->
 </body>
 
 </html>
