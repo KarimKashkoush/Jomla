@@ -143,24 +143,6 @@ form.addEventListener("submit", (e) => {
       }
 
       if (isValid) {
-            // عرض البيانات فقط في الـ console
-            let data = {
-                  "الاسم": personalName.value,
-                  "البريد الإلكتروني": email.value,
-                  "رقم الهاتف": phone.value,
-                  "المدينة": city.value,
-                  "المنطقة": area.value,
-                  "الشارع": street.value,
-                  "طريقة الدفع": paymentMethodVisa.checked ? "بطاقة" : "كاش"
-            };
-
-            if (paymentMethodVisa.checked) {
-                  data["رقم البطاقة"] = cardNumber.value;
-                  data["تاريخ البطاقة"] = cardDate.value;
-                  data["CVV"] = cardCvv.value;
-                  data["اسم صاحب البطاقة"] = cardName.value;
-            }
-
-            console.table(data);
+            form.submit();
       }
 });
