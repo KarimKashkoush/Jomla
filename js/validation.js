@@ -14,7 +14,6 @@ let cardDate = document.getElementById("cardDate");
 let cardCvv = document.getElementById("cardCvv");
 let cardName = document.getElementById("cardName");
 
-// ---------- الرسائل ----------
 
 const setSuccess = (ele) => {
       let parent = ele.parentElement;
@@ -42,7 +41,6 @@ const validateNotEmpty = (ele, message) => {
       }
 };
 
-// ---------- تحقق مخصص للفيزا ----------
 
 cardNumber.addEventListener("input", () => {
       let raw = cardNumber.value.replace(/\D/g, "").slice(0, 16);
@@ -106,7 +104,6 @@ const validatePaymentMethod = () => {
 
 
 
-// ---------- ربط onblur ----------
 
 personalName.onblur = () => validateNotEmpty(personalName, "من فضلك أدخل الاسم");
 email.onblur = () => validateNotEmpty(email, "من فضلك أدخل البريد الإلكتروني");
@@ -120,7 +117,6 @@ cardDate.onblur = () => paymentMethodVisa.checked && validateCardDate();
 cardCvv.onblur = () => paymentMethodVisa.checked && validateCardCvv();
 cardName.onblur = () => paymentMethodVisa.checked && validateNotEmpty(cardName, "من فضلك أدخل اسم صاحب البطاقة");
 
-// ---------- عند إرسال النموذج ----------
 
 form.addEventListener("submit", (e) => {
       e.preventDefault();
