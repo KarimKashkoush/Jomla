@@ -288,7 +288,6 @@ img {
             }
       }
 }
-
 /* End Header */
 
 /* Start bottom-nav */
@@ -338,7 +337,6 @@ img {
             }
       }
 }
-
 @media (max-width: 991px) {
       .bottom-nav {
             display: block;
@@ -484,21 +482,13 @@ img {
 
             .mySwiper {
                   background-color: transparent;
-
+                  display: flex;
                   img {
                         width: 200px;
-                  }
-
-                  .swiper-pagination {
-                        position: relative;
-
-                        bottom: 0px !important;
-
                   }
             }
       }
 }
-
 /* End prdocuts section */
 
 /* Start tektek */
