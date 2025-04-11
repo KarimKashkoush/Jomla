@@ -179,8 +179,10 @@ img {
 }
 
 @media (max-width: 1060px) {
-      .top-nav {
-            display: none;
+      .top-nav .container {
+            .links, .technical-support {
+                  display: none;
+            }
       }
 }
 
