@@ -892,7 +892,7 @@ img {
                                     font-size: 14px;
                                     font-weight: 700;
                                     line-height: 1.2;
-                                    
+
                               }
 
                               svg {
@@ -902,49 +902,60 @@ img {
                         }
                   }
 
-                  
+
                   .extra-options {
                         display: flex;
                         gap: 15px;
                         flex-wrap: wrap;
                         margin-bottom: 10px;
-
-                        .box {
-                              border: 1px solid #ccc;
-                              padding: 2px;
-                              text-align: center;
-                              border-radius: 5px;
-                              width: 80px;
-                              cursor: pointer;
-                              transition: var(--transition-3);
-                              display: flex;
-                              align-items: center;
-                              flex-direction: column;
-
-
-                              &:hover {
-                                    border-color: #000;
-                              }
-                              img {
-                                    width: 76px;
-                                    height: 76px;
-                                    margin-bottom: 5px;
-                                    border-radius: 5px;
-                              }
-                              p {
-                                    margin: 0;
-                                    padding: 0;
-                                    line-height: 1.4;
-                                    font-size: 14px;
-                                    font-weight: 700;
-                              }
-
-                              span {
-                                    color: green;
-                                    font-size: 12px;
-                              }
-                        }
                   }
+
+                  .extra-options .box {
+                        cursor: pointer;
+                  }
+
+                  .extra-options .box input[type="radio"] {
+                        display: none;
+                        border: 2px solid transparent;
+                  }
+
+                  .extra-options .box .content {
+                        border: 1px solid #ccc;
+                        padding: 2px;
+                        text-align: center;
+                        border-radius: 5px;
+                        width: 80px;
+                        transition: 0.3s;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                  }
+
+                  .extra-options .box img {
+                        width: 76px;
+                        height: 76px;
+                        margin-bottom: 5px;
+                        border-radius: 5px;
+                  }
+
+                  .extra-options .box p {
+                        margin: 0;
+                        padding: 0;
+                        line-height: 1.4;
+                        font-size: 14px;
+                        font-weight: 700;
+                  }
+
+                  .extra-options .box span {
+                        color: green;
+                        font-size: 12px;
+                  }
+
+                  .extra-options .box input[type="radio"]:checked+.content {
+                        border-color: #b31217;
+                  }
+
+
 
                   .product-price {
                         display: flex;
@@ -953,7 +964,7 @@ img {
                         font-size: 20px;
                         font-weight: 700;
                         padding-block: 10px;
-                        
+
                         section {
                               display: flex;
                               align-items: flex-end;
@@ -966,6 +977,7 @@ img {
                               font-weight: 400;
                               font-size: 16px;
                         }
+
                         .price {
                               color: #b31217;
                         }
@@ -979,7 +991,7 @@ img {
                               background-color: #b31217;
                               padding: 2px 5px;
                               border-radius: 100px;
-                              
+
                         }
                   }
 
@@ -1071,12 +1083,13 @@ img {
                         padding-inline: 15px;
                   }
             }
-            
+
       }
 }
 
 .product-description {
       padding-bottom: 50px;
+
       .container {
             .section-header {
                   h2 {
