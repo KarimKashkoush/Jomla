@@ -295,8 +295,30 @@ img {
             }
       }
 }
-
 /* End Header */
+
+/* Start Header-Tabby */
+.header-tabby {
+      background-color: #fff;
+      .container {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+
+            p {
+                  font-size: 14px;
+                  font-weight: 700;
+            }
+
+            svg {
+                  width: 60px;
+                  height: 60px;
+            }
+      }
+}
+/* End Header-Tabby */
 
 /* Start bottom-nav */
 .bottom-nav {
@@ -1545,7 +1567,6 @@ img {
             border-radius: 0 4px 4px 0;
       }
 }
-
 /* ============== End Cart ============== */
 
 /* ============== Start Check Out ============== */
@@ -1722,5 +1743,4 @@ img {
             }
       }
 }
-
 /* ============== End Check Out ============== */
