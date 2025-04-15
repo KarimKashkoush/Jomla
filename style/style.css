@@ -916,11 +916,10 @@ img {
 
                   .extra-options .box input[type="radio"] {
                         display: none;
-                        border: 2px solid transparent;
                   }
 
                   .extra-options .box .content {
-                        border: 1px solid #ccc;
+                        border: 2px solid #ccc;
                         padding: 2px;
                         text-align: center;
                         border-radius: 5px;
@@ -932,8 +931,8 @@ img {
                   }
 
                   .extra-options .box img {
-                        width: 76px;
-                        height: 76px;
+                        width: 74px;
+                        height: 74px;
                         margin-bottom: 5px;
                         border-radius: 5px;
                   }
@@ -944,6 +943,10 @@ img {
                         line-height: 1.4;
                         font-size: 14px;
                         font-weight: 700;
+                  }
+
+                  .extra-options .box .price {
+                        color: #b31217;
                   }
 
                   .extra-options .box span {
