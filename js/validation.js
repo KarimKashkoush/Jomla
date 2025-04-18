@@ -41,55 +41,55 @@ const validateNotEmpty = (ele, message) => {
       }
 };
 
-cardNumber.addEventListener("input", () => {
-      let raw = cardNumber.value.replace(/\D/g, "").slice(0, 16);
-      let formatted = raw.match(/.{1,4}/g)?.join(" ") || "";
-      cardNumber.value = formatted;
-});
+// cardNumber.addEventListener("input", () => {
+//       let raw = cardNumber.value.replace(/\D/g, "").slice(0, 16);
+//       let formatted = raw.match(/.{1,4}/g)?.join(" ") || "";
+//       cardNumber.value = formatted;
+// });
 
-cardDate.addEventListener("input", () => {
-      let raw = cardDate.value.replace(/\D/g, "").slice(0, 4);
-      if (raw.length >= 3) {
-            cardDate.value = raw.slice(0, 2) + "/" + raw.slice(2);
-      } else {
-            cardDate.value = raw;
-      }
-});
+// cardDate.addEventListener("input", () => {
+//       let raw = cardDate.value.replace(/\D/g, "").slice(0, 4);
+//       if (raw.length >= 3) {
+//             cardDate.value = raw.slice(0, 2) + "/" + raw.slice(2);
+//       } else {
+//             cardDate.value = raw;
+//       }
+// });
 
-cardCvv.addEventListener("input", () => {
-      cardCvv.value = cardCvv.value.replace(/\D/g, "").slice(0, 3);
-});
+// cardCvv.addEventListener("input", () => {
+//       cardCvv.value = cardCvv.value.replace(/\D/g, "").slice(0, 3);
+// });
 
-const validateCardNumber = () => {
-      let value = cardNumber.value.replace(/\s/g, '');
-      if (!/^\d{16}$/.test(value)) {
-            setError(cardNumber, "رقم البطاقة يجب أن يكون 16 رقمًا");
-            return false;
-      } else {
-            setSuccess(cardNumber);
-            return true;
-      }
-};
+// const validateCardNumber = () => {
+//       let value = cardNumber.value.replace(/\s/g, '');
+//       if (!/^\d{16}$/.test(value)) {
+//             setError(cardNumber, "رقم البطاقة يجب أن يكون 16 رقمًا");
+//             return false;
+//       } else {
+//             setSuccess(cardNumber);
+//             return true;
+//       }
+// };
 
-const validateCardDate = () => {
-      if (!/^\d{2}\/\d{2}$/.test(cardDate.value)) {
-            setError(cardDate, "التاريخ يجب أن يكون بصيغة MM/YY");
-            return false;
-      } else {
-            setSuccess(cardDate);
-            return true;
-      }
-};
+// const validateCardDate = () => {
+//       if (!/^\d{2}\/\d{2}$/.test(cardDate.value)) {
+//             setError(cardDate, "التاريخ يجب أن يكون بصيغة MM/YY");
+//             return false;
+//       } else {
+//             setSuccess(cardDate);
+//             return true;
+//       }
+// };
 
-const validateCardCvv = () => {
-      if (!/^\d{3}$/.test(cardCvv.value)) {
-            setError(cardCvv, "الرمز يجب أن يكون 3 أرقام");
-            return false;
-      } else {
-            setSuccess(cardCvv);
-            return true;
-      }
-};
+// const validateCardCvv = () => {
+//       if (!/^\d{3}$/.test(cardCvv.value)) {
+//             setError(cardCvv, "الرمز يجب أن يكون 3 أرقام");
+//             return false;
+//       } else {
+//             setSuccess(cardCvv);
+//             return true;
+//       }
+// };
 
 const validatePaymentMethod = () => {
       const error = document.getElementById("paymentError");
@@ -102,20 +102,13 @@ const validatePaymentMethod = () => {
       }
 };
 
-const toggleCardInfo = () => {
-      if (paymentMethodVisa.checked || cash.checked) {
-            cardInfoSection.style.display = "block";
-      } else {
-            cardInfoSection.style.display = "none";
-      }
-};
+
 
 // أول ما الصفحة تفتح
-toggleCardInfo();
+// toggleCardInfo();
 
 // لما المستخدم يغير وسيلة الدفع
-paymentMethodVisa.addEventListener("change", toggleCardInfo);
-cash.addEventListener("change", toggleCardInfo);
+
 
 personalName.onblur = () => validateNotEmpty(personalName, "من فضلك أدخل الاسم");
 email.onblur = () => validateNotEmpty(email, "من فضلك أدخل البريد الإلكتروني");

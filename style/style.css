@@ -1703,7 +1703,6 @@ img {
                               box-shadow: none;
                               border-bottom: 1px solid #ccc;
                               padding: 5px;
-                              text-align: center;
 
                               &:focus {
                                     border-top: none;
@@ -1715,7 +1714,7 @@ img {
                         select {
                               width: 100%;
                               padding: 10px;
-
+                              border-color: transparent transparent #ccc transparent;
                         }
 
                         input[type="radio"] {
