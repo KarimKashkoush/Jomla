@@ -185,56 +185,82 @@
                               <h2>تفاصيل الدفع</h2>
                         </section>
                         <section class="payment-method">
-
-
+                              <!-- الدفع كامل -->
                               <section class="input-control">
                                     <section class="radio-input">
-                                          <input type="radio" name="payment-method" id="paymentMethodVisa"
-                                                value="visa">
-                                          <label for="payment-method-visa">الدفع بالباطاقة</label>
-                                    </section>
-                                    <section class="method">
-                                          <!-- Card Number -->
-                                          <section class="input-control">
-                                                <input type="text" id="cardNumber" name="card-number"
-                                                      placeholder="رقم البطاقة">
-                                                <span class="error-massege" id="errorMassege"></span>
-                                          </section>
-                                          <!-- Card Date -->
-                                          <section class="input-control">
-                                                <input type="text" id="cardDate" name="card-date" placeholder="MM/YY">
-                                                <span class="error-massege" id="errorMassege"></span>
-                                          </section>
-                                          <!-- Card CVV -->
-                                          <section class="input-control">
-                                                <input type="text" id="cardCvv" name="card-cvv" placeholder="CVV">
-                                                <span class="error-massege" id="errorMassege"></span>
-                                          </section>
-                                          <!-- Card Name -->
-                                          <section class="input-control">
-                                                <input type="text" id="cardName" name="card-name"
-                                                      placeholder="اسم صاحب البطاقة">
-                                                <span class="error-massege" id="errorMassege"></span>
-                                          </section>
+                                          <input type="radio" name="payment-method" id="paymentMethodVisa" value="visa">
+                                          <label for="paymentMethodVisa">الدفع كامل</label>
                                     </section>
                               </section>
 
-
+                              <!-- الدفع بالتقسيط -->
                               <section class="input-control">
                                     <section class="radio-input">
-                                          <input type="radio" name="payment-method" id="cash"
-                                                value="cash">
-                                          <label for="paymentMethodCash">الدفع كاش</label>
+                                          <input type="radio" name="payment-method" id="cash" value="cash">
+                                          <label for="cash">الدفع بالتقسيط</label>
                                     </section>
                                     <section class="method">
-                                          <p>الدفع عند الاستلام</p>
-                                          <p>سيتم الدفع نقدًا عند استلام الطلب.</p>
+                                          <section class="input-control">
+                                                <label for="total">المبلغ الإجمالي</label>
+                                                <input type="text" id="total" class="total" name="total" disabled>
+                                          </section>
+                                          <section class="input-control">
+                                                <label for="firstPayment">الدفعة الأولى</label>
+                                                <input type="text" id="firstPayment" name="first-payment"
+                                                      placeholder="الدفعة الأولى">
+                                                <span class="error-massege" id="errorMassege"></span>
+                                          </section>
+                                          <section class="input-control">
+                                                <label for="numberOfInstallments">عدد الأقساط</label>
+                                                <select id="numberOfInstallments" name="numberOfInstallments">
+                                                      <option selected value="">عدد أشهر الأقساط ؟</option>
+                                                      <option value="1">1</option>
+                                                      <option value="2">2</option>
+                                                      <option value="3">3</option>
+                                                      <option value="4">4</option>
+                                                      <option value="5">5</option>
+                                                      <option value="6">6</option>
+                                                      <option value="7">7</option>
+                                                      <option value="8">8</option>
+                                                      <option value="9">9</option>
+                                                      <option value="10">10</option>
+                                                      <option value="11">11</option>
+                                                      <option value="12">12</option>
+                                                </select>
+                                                <span class="error-massege" id="errorMassege"></span>
+                                          </section>
+                                          <section class="input-control">
+                                                <label for="installmentAmount">قيمة القسط</label>
+                                                <input type="text" id="installmentAmount" name="installment-amount"
+                                                      placeholder="قيمة القسط" disabled>
+                                          </section>
                                     </section>
                               </section>
-
-                              
                         </section>
                         <span class="error-massege" id="paymentError"></span>
+
+                        <!-- بيانات البطاقة مشتركة -->
+                        <section class="card-info">
+                              <section class="section-header">
+                                    <h2>تفاصيل بطاقة الدفع</h2>
+                              </section>
+                              <section class="input-control">
+                                    <input type="text" id="cardNumber" name="card-number" placeholder="رقم البطاقة">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                              <section class="input-control">
+                                    <input type="text" id="cardDate" name="card-date" placeholder="MM/YY">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                              <section class="input-control">
+                                    <input type="text" id="cardCvv" name="card-cvv" placeholder="CVV">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                              <section class="input-control">
+                                    <input type="text" id="cardName" name="card-name" placeholder="اسم صاحب البطاقة">
+                                    <span class="error-massege" id="errorMassege"></span>
+                              </section>
+                        </section>
 
 
                         <button>إرسال</button>
@@ -248,7 +274,7 @@
                         <section class="box">
                               <section>
                                     <span>المجموع</span>
-                                    <p>516 د.إ</p>
+                                    <p id="totalValue">516 د.إ</p>
                               </section>
                               <section>
                                     <span>الشحن</span>
@@ -318,7 +344,7 @@
                   method.classList.remove('open');
             });
       </script>
-      <!-- Validation -->
+      <!-- Installments -->
 </body>
 
 </html>

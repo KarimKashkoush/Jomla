@@ -295,17 +295,30 @@ img {
             }
       }
 }
+
 /* End Header */
 
 /* Start Header-Tabby */
 .header-tabby {
       background-color: #fff;
+      position: relative;
+      height: 50px;
+      /* حسب محتوى العنصر */
+      overflow: hidden;
+
       .container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
             display: flex;
             flex-direction: row-reverse;
             align-items: center;
             justify-content: center;
             gap: 3px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
 
             p {
                   font-size: 14px;
@@ -317,7 +330,13 @@ img {
                   height: 60px;
             }
       }
+
+      .container.active {
+            opacity: 1;
+            pointer-events: auto;
+      }
 }
+
 /* End Header-Tabby */
 
 /* Start bottom-nav */
@@ -568,27 +587,34 @@ img {
       .container {
             .boxs {
                   display: grid;
-                  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
                   gap: 10px;
                   padding-top: 0;
 
-                  .box {
+                  a .box {
                         transition: var(--transition-3);
                         background-color: #fff;
                         border-radius: 10px;
                         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
                         overflow: hidden;
                         color: #000;
+                        max-height: 450px;
 
                         .image {
                               padding: 10px;
+                              margin: auto;
+                              overflow: hidden;
+                              max-height: 300px;
                         }
 
                         img {
-                              width: 100%;
+                              width: 265px;
+                              max-width: 100%;
+                              object-fit: contain;
                         }
 
                         .content {
+                              flex: 1;
                               padding: 10px;
 
                               >p {
@@ -804,7 +830,9 @@ img {
                         }
 
                         img {
-                              width: 100%;
+                              width: 265px;
+                              max-width: 100%;
+                              object-fit: contain;
                         }
 
                         .content {
@@ -1084,8 +1112,6 @@ img {
                         }
                   }
             }
-
-
       }
 
       @media screen and (max-width: 786px) {
@@ -1567,11 +1593,12 @@ img {
             border-radius: 0 4px 4px 0;
       }
 }
+
 /* ============== End Cart ============== */
 
 /* ============== Start Check Out ============== */
 .checkout-page {
-      .container {
+      >.container {
             padding-block: 20px;
             display: flex;
             justify-content: space-between;
@@ -1646,6 +1673,7 @@ img {
                         background-color: #fff;
                         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
                         border-radius: 5px;
+                        margin-bottom: 15px;
 
                         >.input-control {
                               margin: 0;
@@ -1684,6 +1712,12 @@ img {
                               }
                         }
 
+                        select {
+                              width: 100%;
+                              padding: 10px;
+
+                        }
+
                         input[type="radio"] {
                               width: fit-content;
                               height: 15px;
@@ -1704,6 +1738,35 @@ img {
                               gap: 4px;
                               margin-top: 15px;
                               margin-bottom: 15px;
+                        }
+                  }
+
+                  .card-info {
+                        input {
+                              text-align: center;
+                        }
+                  }
+
+
+                  .phone {
+                        input {
+                              padding-left: 115px;
+                        }
+
+                        .country {
+                              position: absolute;
+                              left: 10px;
+                              top: 0px;
+                              display: flex;
+                              align-items: center;
+                              gap: 5px;
+                              padding: 11px;
+                              border-right: 1px solid #ccc;
+
+                              svg {
+                                    width: 30px;
+                                    height: 30px;
+                              }
                         }
                   }
             }
@@ -1743,4 +1806,5 @@ img {
             }
       }
 }
+
 /* ============== End Check Out ============== */

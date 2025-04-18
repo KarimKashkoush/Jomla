@@ -13,7 +13,7 @@ let cardNumber = document.getElementById("cardNumber");
 let cardDate = document.getElementById("cardDate");
 let cardCvv = document.getElementById("cardCvv");
 let cardName = document.getElementById("cardName");
-
+let cardInfoSection = document.querySelector(".card-info");
 
 const setSuccess = (ele) => {
       let parent = ele.parentElement;
@@ -40,7 +40,6 @@ const validateNotEmpty = (ele, message) => {
             return true;
       }
 };
-
 
 cardNumber.addEventListener("input", () => {
       let raw = cardNumber.value.replace(/\D/g, "").slice(0, 16);
@@ -91,6 +90,7 @@ const validateCardCvv = () => {
             return true;
       }
 };
+
 const validatePaymentMethod = () => {
       const error = document.getElementById("paymentError");
       if (!paymentMethodVisa.checked && !cash.checked) {
@@ -102,8 +102,20 @@ const validatePaymentMethod = () => {
       }
 };
 
+const toggleCardInfo = () => {
+      if (paymentMethodVisa.checked || cash.checked) {
+            cardInfoSection.style.display = "block";
+      } else {
+            cardInfoSection.style.display = "none";
+      }
+};
 
+// أول ما الصفحة تفتح
+toggleCardInfo();
 
+// لما المستخدم يغير وسيلة الدفع
+paymentMethodVisa.addEventListener("change", toggleCardInfo);
+cash.addEventListener("change", toggleCardInfo);
 
 personalName.onblur = () => validateNotEmpty(personalName, "من فضلك أدخل الاسم");
 email.onblur = () => validateNotEmpty(email, "من فضلك أدخل البريد الإلكتروني");
@@ -112,17 +124,10 @@ city.onblur = () => validateNotEmpty(city, "من فضلك أدخل المدين�
 area.onblur = () => validateNotEmpty(area, "من فضلك أدخل المنطقة");
 street.onblur = () => validateNotEmpty(street, "من فضلك أدخل الشارع");
 
-cardNumber.onblur = () => paymentMethodVisa.checked && validateCardNumber();
-cardDate.onblur = () => paymentMethodVisa.checked && validateCardDate();
-cardCvv.onblur = () => paymentMethodVisa.checked && validateCardCvv();
-cardName.onblur = () => paymentMethodVisa.checked && validateNotEmpty(cardName, "من فضلك أدخل اسم صاحب البطاقة");
-
-
 form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       let isValid = true;
-
       isValid &= validateNotEmpty(personalName, "من فضلك أدخل الاسم");
       isValid &= validateNotEmpty(email, "من فضلك أدخل البريد الإلكتروني");
       isValid &= validateNotEmpty(phone, "من فضلك أدخل رقم الهاتف");
@@ -131,14 +136,43 @@ form.addEventListener("submit", (e) => {
       isValid &= validateNotEmpty(street, "من فضلك أدخل الشارع");
       isValid &= validatePaymentMethod();
 
-      if (paymentMethodVisa.checked) {
+      if (paymentMethodVisa.checked || cash.checked) {
             isValid &= validateCardNumber();
             isValid &= validateCardDate();
             isValid &= validateCardCvv();
             isValid &= validateNotEmpty(cardName, "من فضلك أدخل اسم صاحب البطاقة");
       }
 
+      if (cash.checked) {
+            let firstPayment = document.getElementById("firstPayment");
+            let numberOfInstallments = document.getElementById("numberOfInstallments");
+            isValid &= validateNotEmpty(firstPayment, "من فضلك أدخل الدفعة الأولى");
+            if (numberOfInstallments.value === "") {
+                  setError(numberOfInstallments, "من فضلك اختر عدد أشهر الأقساط");
+                  isValid &= false;
+            } else {
+                  setSuccess(numberOfInstallments);
+            }
+      }
+
       if (isValid) {
             form.submit();
       }
 });
+
+form.onchange = () => {
+      let totalValue = document.getElementById("totalValue");
+      let totalInput = document.getElementById("total");
+      let firstPaymentInput = +(document.getElementById("firstPayment").value);
+      let numberOfInstallmentsSelect = document.getElementById("numberOfInstallments").value;
+      let installmentAmountInput = document.getElementById("installmentAmount");
+
+      let total = parseFloat(totalValue.innerHTML.replace(/[^\d.]/g, ''));
+      totalInput.value = total;
+
+      if (firstPaymentInput && numberOfInstallmentsSelect) {
+            installmentAmountInput.value = ((total - firstPaymentInput) / numberOfInstallmentsSelect).toFixed(2);
+      } else {
+            installmentAmountInput.value = "";
+      }
+};
