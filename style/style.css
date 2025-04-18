@@ -1729,22 +1729,16 @@ img {
 
                         input {
                               padding: 15px;
-                              border-radius: 0px;
                               box-shadow: none;
                               border-bottom: 1px solid #ccc;
                               padding: 5px;
 
-                              &:focus {
-                                    border-top: none;
-                                    border-right: none;
-                                    border-left: none;
-                              }
                         }
 
                         select {
                               width: 100%;
                               padding: 10px;
-                              border-color: transparent transparent #ccc transparent;
+                              border: 1px solid #ccc;
                         }
 
                         input[type="radio"] {
