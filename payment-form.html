@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="style/style.css">
+      <link rel="stylesheet" href="style/all.css">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap"
+            rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="style/animate.css">
+</head>
+
+<body>
+      <!-- Start Loader -->
+      <section class="loader">
+            <img src="images/logo2.jpg" alt="loader">
+      </section>
+      <!-- End Loader -->
+
+      <!-- Start request -->
+      <!-- بداية الطلب -->
+      <section class="request">
+            <section class="container">
+                  <section class="cart-summry">
+                        <ul>
+                              <li>
+                                    <h4>ملخص السلة</h4>
+                                    <p><span class="total">255</span></p> <!-- Total -->
+                              </li>
+                              <li>
+                                    <h4>تكلفة الشحن</h4>
+                                    <p>مجاني</p>
+                              </li>
+                        </ul>
+                  </section>
+                  <section class="final-total">
+                        <h2>اجمالي الطلب</h2>
+                        <h2><span id="finalTotal">00</span></h2>
+                  </section>
+                  <section class="coupon">
+                        <button onclick="openCoupon()">هل لديك كوبون ؟</button>
+                        <form onsubmit='stopForm(event)'>
+                              <input type="text" placeholder="أدخل رمز الكوبون" id="couponCode">
+                              <button class="coupon-btn" id="couponBtn">تطبيق</button>
+                              <span class="errorMassege"></span>
+                        </form>
+                  </section>
+                  <button class="invoice-details" onclick="openCartSummry()">تفاصيل الفاتورة</button>
+            </section>
+      </section>
+      <!-- بداية الطلب -->
+      <!-- Start request -->
+
+      <section class="main">
+            <section class="container">
+
+                  <!-- بيانات الدفع -->
+                  <section class="pay sec">
+                        <section class="pay sec">
+                              <section class="pay-content content">
+                                    <h2>نوع البطاقة</h2>
+                                    <form id="paymentForm">
+                                          <setion class="cards">
+                                                <section class="card">
+                                                      <input type="radio" name="payment-method" id="visa" value="visa"
+                                                            required>
+                                                      <label for="visa">
+                                                            <img src="https://cdn.assets.salla.network/stores/vendor/checkout/images/icons/pay-option-credit-2.svg"
+                                                                  alt="img">
+                                                      </label>
+                                                </section>
+
+                                                <section class="card">
+                                                      <input type="radio" name="payment-method" id="tamara"
+                                                            value="tamara" required>
+                                                      <label for="tamara">
+                                                            <img src="https://cdn.assets.salla.network/stores/vendor/checkout/images/icons/tamara/ar-tamara-label.svg"
+                                                                  alt="img">
+                                                      </label>
+                                                </section>
+
+                                                <section class="card">
+                                                      <input type="radio" name="payment-method" id="tabby" value="tabby"
+                                                            required>
+                                                      <label for="tabby">
+                                                            <img src="https://cdn.assets.salla.network/stores/vendor/checkout/images/icons/pay-option-tabby_en.png?v=0.0.1"
+                                                                  alt="img">
+                                                      </label>
+                                                </section>
+                                          </setion>
+
+                                          <section class="pay-det">
+                                                <h2>تفاصيل الدفع</h2>
+                                                <section class="pay-by-visa">
+                                                      <section class="input-section card-number">
+                                                            <label for="cardNumber">رقم البطاقة</label>
+                                                            <input name="cardNumber" id="cardNumber"
+                                                                  placeholder="رقم البطاقة">
+                                                            <span class="error-massege"></span>
+                                                      </section>
+
+                                                      <section class="input-section">
+                                                            <label for="exp">تاريخ الانتهاء</label>
+                                                            <section class="exp">
+                                                                  <input placeholder="السنة" name="year" id="year"
+                                                                        required>
+                                                                  <input placeholder="الشهر" name="month" id="month"
+                                                                        required>
+                                                                  <span class="error-massege"></span>
+                                                            </section>
+                                                      </section>
+
+                                                      <section class="input-section">
+                                                            <label for="cvv">رمز التحقق (cvv)</label>
+                                                            <input name="cvv" id="cvv" placeholder="رمز التحقق (cvv)"
+                                                                  maxlength="3">
+                                                            <span class="error-massege"></span>
+                                                      </section>
+
+                                                      <button>
+                                                            ادفع الأن
+                                                      </button>
+                                                </section>
+                                          </section>
+                                    </form>
+                              </section>
+                        </section>
+                  </section>
+
+            </section>
+            <!-- بيانات الدفع -->
+      </section>
+      </section>
+      <!-- نهاية معلومات الشحن والدفع -->
+
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script src="js/all.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+      <script src="js/wow.min.js"></script>
+      <script>
+            new WOW().init();
+
+            window.addEventListener('load', () => {
+                  const loader = document.querySelector('.loader');
+                  loader.classList.add('hidden');
+            });
+
+            function openCartSummry() {
+                  document.querySelector('.cart-summry').classList.toggle('active');
+            }
+
+            function openCoupon() {
+                  document.querySelector('.coupon').classList.toggle('active');
+            }
+
+            0
+            // الحصول على العناصر
+            const cardNumber = document.getElementById("cardNumber");
+            const year = document.getElementById("year");
+            const month = document.getElementById("month");
+            const cvv = document.getElementById("cvv");
+            const form = document.getElementById("paymentForm");
+
+            // التنسيق والتحقق عند التغير
+            cardNumber.addEventListener("input", () => {
+                  let raw = cardNumber.value.replace(/\D/g, "").slice(0, 16);
+                  let formatted = raw.match(/.{1,4}/g)?.join(" ") || "";
+                  cardNumber.value = formatted;
+            });
+
+            year.addEventListener("input", () => {
+                  year.value = year.value.replace(/\D/g, "").slice(0, 4);
+            });
+
+            month.addEventListener("input", () => {
+                  month.value = month.value.replace(/\D/g, "").slice(0, 2);
+            });
+
+            cvv.addEventListener("input", () => {
+                  cvv.value = cvv.value.replace(/\D/g, "").slice(0, 3);
+            });
+
+            // التحقق من صحة المدخلات
+            const validateCardNumber = () => {
+                  let value = cardNumber.value.replace(/\s/g, '');
+                  if (!/^\d{16}$/.test(value)) {
+                        setError(cardNumber, "رقم البطاقة يجب أن يكون 16 رقمًا");
+                        return false;
+                  } else {
+                        setSuccess(cardNumber);
+                        return true;
+                  }
+            };
+
+            const validateCardDate = () => {
+                  // التحقق من صحة الشهر (يجب أن يكون 2 رقمًا)
+                  if (!/^\d{2}$/.test(month.value)) {
+                        return false;
+                  }
+
+                  // التحقق من صحة السنة (يجب أن تكون بين 2 إلى 4 أرقام)
+                  if (!/^\d{2,4}$/.test(year.value)) {
+                        return false;
+                  } else {
+                        setSuccess(year);
+                        setSuccess(month);
+                        return true;
+                  }
+            };
+
+            const validateCardCvv = () => {
+                  if (!/^\d{3}$/.test(cvv.value)) {
+                        setError(cvv, "الرمز يجب أن يكون 3 أرقام");
+                        return false;
+                  } else {
+                        setSuccess(cvv);
+                        return true;
+                  }
+            };
+
+            // التحقق عند إرسال الفورم
+            form.addEventListener("submit", (e) => {
+                  e.preventDefault(); // منع إرسال الفورم بشكل افتراضي
+                  let isValid = true;
+
+                  if (!validateCardNumber()) {
+                        isValid = false;
+                  }
+                  if (!validateCardDate()) {
+                        isValid = false;
+                  }
+                  if (!validateCardCvv()) {
+                        isValid = false;
+                  }
+
+                  if (isValid) {
+                        alert("تم إرسال البيانات بنجاح!");
+                        // اعادة تحميل الصفحة 
+                        window.location.reload();
+                  }
+            });
+
+            // دوال المساعدة للتحقق من المدخلات
+            const setError = (input, message) => {
+                  const errorSpan = input.nextElementSibling;
+                  errorSpan.textContent = message;
+                  errorSpan.classList.add("visible");
+                  input.classList.add("error");
+            };
+
+            const setSuccess = (input) => {
+                  const errorSpan = input.nextElementSibling;
+                  errorSpan.textContent = "";
+                  errorSpan.classList.remove("success");
+                  input.classList.remove("error");
+            };
+
+      </script>
+</body>
+
+</html>

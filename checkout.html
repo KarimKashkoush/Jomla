@@ -263,7 +263,7 @@
                                           <section class="input-control">
                                                 <label for="firstPayment">الدفعة الأولى</label>
                                                 <input type="text" id="firstPayment" name="first-payment"
-                                                      placeholder="الدفعة الأولى">
+                                                      >
                                                 <span class="error-massege" id="errorMassege"></span>
                                           </section>
                                           <section class="input-control">
@@ -288,7 +288,7 @@
                                           <section class="input-control">
                                                 <label for="installmentAmount">قيمة القسط</label>
                                                 <input type="text" id="installmentAmount" name="installment-amount"
-                                                      placeholder="قيمة القسط" disabled>
+                                                      disabled>
                                           </section>
                                     </section>
                               </section>
@@ -302,6 +302,34 @@
                                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL9M-Ot0smAn9st3y8a8nQsq5LT660I4uAhA&s"
                                                 alt="">
                                     </section>
+                                    <section class="method">
+                                          <table>
+                                                <thead>
+                                                      <tr>
+                                                            <th>التاريخ</th>
+                                                            <th>الدفعة</th>
+                                                      </tr>
+                                                </thead>
+                                                <tbody id="tabbyTableBody">
+                                                      <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                      </tr>
+                                                </tbody>
+                                          </table>
+                                    </section>
                               </section>
 
                               <!-- تمــــارا -->
@@ -313,6 +341,34 @@
 
                                           <img src="https://media.zid.store/77e44378-d138-436a-ae9b-3dfe4d23cd6d/e8ac714c-8209-4e9a-9fcf-2cf32dae68b8.webp"
                                                 alt="">
+                                    </section>
+                                    <section class="method">
+                                          <table>
+                                                <thead>
+                                                      <tr>
+                                                            <th>التاريخ</th>
+                                                            <th>الدفعة</th>
+                                                      </tr>
+                                                </thead>
+                                                <tbody id="installmentTableBody">
+                                                      <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                      </tr>
+                                                </tbody>
+                                          </table>
                                     </section>
                               </section>
                         </section>
@@ -401,6 +457,48 @@
 
 
       </script>
+
+      <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                  const totalValueElement = document.getElementById("totalValue");
+                  const installmentTable = document.getElementById("installmentTableBody");
+                  const tabbyTable = document.getElementById("tabbyTableBody");
+
+                  if (!installmentTable || !tabbyTable) {
+                        console.error("تأكد إن الجدولين ليهم ID: installmentTableBody و tabbyTableBody");
+                        return;
+                  }
+
+                  const totalText = totalValueElement.textContent.trim();
+                  const totalAmount = parseFloat(totalText.replace(/[^\d.]/g, ''));
+
+                  const installmentCount = 4;
+                  const installmentValue = (totalAmount / installmentCount).toFixed(2);
+
+                  const today = new Date();
+
+                  // نفضي الجدولين قبل إضافة الصفوف
+                  installmentTable.innerHTML = '';
+                  tabbyTable.innerHTML = '';
+
+                  for (let i = 0; i < installmentCount; i++) {
+                        const installmentDate = new Date(today);
+                        installmentDate.setMonth(today.getMonth() + i);
+
+                        const day = String(installmentDate.getDate()).padStart(2, '0');
+                        const month = String(installmentDate.getMonth() + 1).padStart(2, '0');
+                        const year = installmentDate.getFullYear();
+                        const formattedDate = `${day}/${month}/${year}`;
+
+                        const rowHTML = `<tr><td>${formattedDate}</td><td>${installmentValue} د.إ</td></tr>`;
+
+                        installmentTable.insertAdjacentHTML('beforeend', rowHTML);
+                        tabbyTable.insertAdjacentHTML('beforeend', rowHTML);
+                  }
+            });
+      </script>
+
+
       <!-- Installments -->
 </body>
 

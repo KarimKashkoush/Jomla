@@ -1612,7 +1612,7 @@ img {
                   width: 30px;
                   height: 30px;
             }
-            
+
             img {
                   width: 40px;
             }
@@ -1699,6 +1699,27 @@ img {
                               overflow: hidden;
                               transition: max-height 0.5s ease, padding 0.3s ease, opacity 0.3s ease;
                               opacity: 0;
+
+
+                              table {
+                                    width: 100%;
+                                    text-align: center;
+                                    border-collapse: collapse;
+                                    margin-bottom: 10px;
+
+                                    th {
+                                          background-color: rgb(179, 18, 23);
+                                          color: #fff;
+                                    }
+
+                                    tr:nth-child(even) {
+                                          background-color: #d1d1d1;
+                                    }
+
+                                    td {
+                                          width: 50%;
+                                    }
+                              }
                         }
 
                         .method.open {
@@ -1806,6 +1827,8 @@ img {
 
                   }
             }
+
+
       }
 
       @media (max-width: 786px) {
@@ -1816,3 +1839,263 @@ img {
 }
 
 /* ============== End Check Out ============== */
+
+
+
+
+
+
+
+
+
+
+
+input,
+button,
+select {
+      color: var(--main-color);
+      outline: none;
+      border: none;
+}
+
+
+
+
+/* Start request */
+/* بداية الطلب */
+.request {
+      margin: 25px;
+}
+
+.request .container {
+      padding: 15px 15px 30px 15px;
+      position: relative;
+      background-color: #fff;
+      margin: auto;
+      border-radius: 15px;
+}
+
+.cart-summry {
+      height: 0px;
+      overflow: hidden;
+      transition: 0.5s ease;
+}
+
+.cart-summry.active {
+      height: 100px;
+}
+
+.cart-summry ul li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed;
+}
+
+.request .container .invoice-details {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 7px 12px;
+      border-radius: 100px;
+      cursor: pointer;
+      border: 5px solid #f6f6f6;
+      background-color: #fff;
+}
+
+.request .container .final-total {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+}
+
+.request .container .total h2 {
+      font-size: 20px;
+}
+
+.request .container .coupon {
+      margin-top: 15px;
+      height: 24px;
+      overflow: hidden;
+      transition: .5s ease;
+}
+
+.request .container .coupon.active {
+      height: 110px;
+}
+
+.request .container .coupon>button {
+      background-color: transparent;
+      color: #f55157;
+      font-size: 13px;
+      cursor: pointer;
+      display: block;
+      margin-right: auto;
+      margin-bottom: 10px;
+}
+
+.request .container .coupon form {
+      width: 100%;
+      transition: 1s;
+}
+
+.request .container .coupon form input {
+      display: inline-block;
+      width: 84%;
+      border: 1px solid var(--border-color);
+      padding: 10px 15px;
+      outline: none;
+      border-radius: 5px;
+      font-size: 16px;
+      color: var(--main-color);
+      height: 48px;
+}
+
+.request .container .coupon form .coupon-btn {
+      width: 15%;
+      border-radius: 5px;
+      height: 50px;
+      cursor: pointer;
+}
+
+.errorMassege {
+      display: block;
+      color: #f55157;
+      font-size: 14px;
+}
+
+.pay-content {
+
+      margin-block: 50px;
+
+      .cards {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+
+            .card {
+                  cursor: pointer;
+                  height: 40px;
+                  width: 100px;
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  padding: 10px;
+
+                  img {
+                        cursor: pointer;
+                        width: 60px;
+                  }
+
+                  input {
+                        cursor: pointer;
+                  }
+            }
+      }
+}
+
+.pay-by-visa {
+      border-radius: 15px;
+      border: 1px solid #9999999c;
+      padding: 15px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .input-section {
+            width: calc((55% / 2) - 10px);
+      }
+
+      .card-number {
+            width: 45%;
+      }
+
+      
+      label {
+            display: block;
+            position: relative;
+      }
+      
+      
+      input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+      }
+
+      input.error {
+            background-color: #b312172c;
+      }
+
+      input.success {
+            background-color: #61c56e2c;
+      }
+      
+      
+      input[type="submit"].active {
+            cursor: pointer;
+            background-color: #aed8e0;
+            color: #2f5961;
+            transition: 0.3s ease;
+            font-size: 15px;
+            font-weight: 700;
+            
+            &:hover {
+                  background-color: #86c2ce;
+            }
+      }
+      
+      .exp {
+            display: flex;
+            gap: 5px;
+            input {
+                  border: none;
+                  text-align: center;
+                  border: 1px solid #ccc;
+                  
+            }
+            input.error {
+                  background-color: #b312172c;
+            }
+
+            input.success {
+                  background-color: #61c56e2c;
+            }
+      }
+      
+      button {
+            background-color:rgb(179, 18, 23);
+            color: #fff;
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+      }
+
+      @media (max-width: 900px) {
+            .input-section {
+                  width: 100%;
+            }
+      
+            .card-number {
+                  width: 100%;
+            }
+      
+            .exp {
+                  width: 100%;
+            }
+      }
+
+      .error-massege {
+            color: #b31217;
+            font-size: 14px;
+      }
+}
