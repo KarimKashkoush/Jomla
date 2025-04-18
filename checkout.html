@@ -114,27 +114,6 @@
       </section>
       <!-- End Header -->
 
-      <!-- Start Bottom-Nav -->
-      <section class="bottom-nav">
-            <section class="container">
-                  <section>
-                        <a href="#"><i class="fa-solid fa-house"></i></a>
-                  </section>
-                  <section>
-                        <a href="#"><i class="fa-solid fa-cubes"></i></a>
-                  </section>
-                  <section>
-                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <span>0</span>
-                  </section>
-                  <section>
-                        <a href="#"><i class="fa-regular fa-user"></i></a>
-                  </section>
-            </section>
-      </section>
-      <!-- End Bottom-Nav -->
-
-
       <!-- Start CheckOut Page -->
       <section class="checkout-page">
             <section class="container">
@@ -156,9 +135,13 @@
                                     <span class="error-massege" id="errorMassege"></span>
                               </section>
                               <!-- Phone Number -->
-                              <section class="input-control">
+                              <section class="input-control phone">
                                     <label for="phone">رقم الهاتف</label>
                                     <input type="tel" id="phone" name="phone">
+                                    <section class="country">
+                                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/250px-Flag_of_the_United_Arab_Emirates.svg.png" alt="">
+                                          +961
+                                    </section>
                                     <span class="error-massege" id="errorMassege"></span>
                               </section>
                               <!-- City -->
@@ -415,19 +398,9 @@
       <script src="js/wow.min.js"></script>
       <script src="js/validation.js"></script>
       <script>
-            function adjustPadding() {
-                  let body = document.querySelector('body');
-                  if (window.innerWidth < 786) {
-                        body.style.paddingBottom = '76px';
-                  } else {
-                        body.style.paddingBottom = '0px';
-                  }
-            }
-
+            
             new WOW().init();
-            adjustPadding();
-            window.addEventListener('resize', adjustPadding);
-
+            
             window.addEventListener('load', () => {
                   const loader = document.querySelector('.loader');
                   loader.classList.add('hidden');

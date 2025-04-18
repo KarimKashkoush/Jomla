@@ -1646,8 +1646,8 @@ img {
                         transition: var(--transition-3);
                         border-radius: 5px;
                         background-color: #fff;
-                        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
                         border: 1px solid transparent;
+                        border: 1px solid #ccc;
 
                         &:focus {
                               border-color: #0000003c;
@@ -1791,10 +1791,9 @@ img {
                               gap: 5px;
                               padding: 11px;
                               border-right: 1px solid #ccc;
-
-                              svg {
+                              direction: ltr;
+                              img {
                                     width: 30px;
-                                    height: 30px;
                               }
                         }
                   }
@@ -1839,15 +1838,6 @@ img {
 }
 
 /* ============== End Check Out ============== */
-
-
-
-
-
-
-
-
-
 
 
 input,
